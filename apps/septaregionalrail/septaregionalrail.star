@@ -203,9 +203,10 @@ def call_schedule_api(direction, station):
     return schedule
 
 def get_schedule(direction, station):
-    schedule = call_schedule_api(direction, station)
+    schedule = "https://www3.septa.org/api/NextToArrive/index.php?req1=30th%20Street%20Station&req2=Paoli"
     list_of_departures = []
 
+    #render 
     for i in schedule:
         parsed_departure = time.parse_time(i["sched_time"], "2006-01-02 15:04:05.000", "America/New_York").format("3:04")
         if int(time.parse_time(i["sched_time"], "2006-01-02 15:04:05.000", "America/New_York").format("15")) < 12:
@@ -223,6 +224,7 @@ def get_schedule(direction, station):
             departure = " " + parsed_departure
         else:
             departure = parsed_departure
+    #render
         item = render.Box(
             height = 6,
             width = 64,
