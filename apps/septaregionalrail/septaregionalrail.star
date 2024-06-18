@@ -180,11 +180,13 @@ def regional_rail_station_options():
         )
     return station_options
 
-API_BASE = "http://www3.septa.org/api"
-API_ROUTES = API_BASE + "/Routes"
-API_SCHEDULE = API_BASE + "/Arrivals"
-DEFAULT_STATION = "Wayne Junction"
-DEFAULT_DIRECTION = "S"
+API_BASE = "##https://www3.septa.org/api/NextToArrive/index.php?req1=30th%20Street%20Station&req2=Paoli"
+API_ROUTES = API_BASE + ""
+API_SCHEDULE = API_BASE + ""
+DEFAULT_STATION = ""
+DEFAULT_DIRECTION = ""
+
+##https://www3.septa.org/api/NextToArrive/index.php?req1=30th%20Street%20Station&req2=Paoli
 
 def call_schedule_api(direction, station):
     cache_string = cache.get(direction + "_" + station + "_" + "schedule_api_response")
@@ -203,7 +205,7 @@ def call_schedule_api(direction, station):
     return schedule
 
 def get_schedule(direction, station):
-    schedule = "https://www3.septa.org/api/NextToArrive/index.php?req1=30th%20Street%20Station&req2=Paoli"
+    schedule = call_schedule_api(direction, station)
     list_of_departures = []
 
     #render 
