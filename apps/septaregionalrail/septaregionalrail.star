@@ -180,7 +180,7 @@ def regional_rail_station_options():
         )
     return station_options
 
-API_BASE = "##https://www3.septa.org/api/NextToArrive/index.php?req1=30th%20Street%20Station&req2=Paoli"
+API_BASE = "https://www3.septa.org/api/NextToArrive/index.php?req1=30th%20Street%20Station&req2=Paoli"
 API_ROUTES = API_BASE + ""
 API_SCHEDULE = API_BASE + ""
 DEFAULT_STATION = "Wayne Junction"
